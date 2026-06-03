@@ -42,42 +42,62 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-contactForm.addEventListener("submit", async (event) => {
+const postToGoogleSheet = (url, values) => {
+  const iframeName = "google-sheet-submit-frame";
+  let iframe = document.querySelector(`iframe[name="${iframeName}"]`);
+
+  if (!iframe) {
+    iframe = document.createElement("iframe");
+    iframe.name = iframeName;
+    iframe.hidden = true;
+    document.body.appendChild(iframe);
+  }
+
+  const form = document.createElement("form");
+  form.action = url;
+  form.method = "POST";
+  form.target = iframeName;
+  form.style.display = "none";
+
+  Object.entries(values).forEach(([key, value]) => {
+    const input = document.createElement("input");
+    input.type = "hidden";
+    input.name = key;
+    input.value = value;
+    form.appendChild(input);
+  });
+
+  document.body.appendChild(form);
+  form.submit();
+  form.remove();
+};
+
+contactForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const formData = new FormData(contactForm);
   const name = formData.get("name") || "담당자";
   const googleSheetUrl = contactForm.dataset.googleSheetUrl;
   const submitButton = contactForm.querySelector('button[type="submit"]');
-  const payload = new URLSearchParams();
-
-  payload.set("name", formData.get("name") || "");
-  payload.set("company", formData.get("company") || "");
-  payload.set("phone", formData.get("phone") || "");
-  payload.set("email", formData.get("email") || "");
-  payload.set("topic", formData.get("topic") || "");
-  payload.set("message", formData.get("message") || "");
+  const payload = {
+    name: formData.get("name") || "",
+    company: formData.get("company") || "",
+    phone: formData.get("phone") || "",
+    email: formData.get("email") || "",
+    topic: formData.get("topic") || "",
+    message: formData.get("message") || "",
+  };
 
   if (googleSheetUrl) {
     formNote.textContent = "문의 내용을 전송하고 있습니다.";
     submitButton.disabled = true;
 
-    try {
-      await fetch(googleSheetUrl, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-        },
-        body: payload.toString(),
-      });
+    postToGoogleSheet(googleSheetUrl, payload);
 
+    window.setTimeout(() => {
       formNote.textContent = `${name}님, 문의가 접수되었습니다. 담당자가 확인 후 연락드리겠습니다.`;
       contactForm.reset();
-    } catch (error) {
-      formNote.textContent = "전송 중 문제가 발생했습니다. 잠시 후 다시 시도해주세요.";
-    } finally {
       submitButton.disabled = false;
-    }
+    }, 900);
     return;
   }
 
