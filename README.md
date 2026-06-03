@@ -67,7 +67,7 @@ npx vercel --prod
 ```javascript
 function doPost(e) {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  const data = JSON.parse(e.postData.contents);
+  const data = e && e.parameter ? e.parameter : {};
 
   sheet.appendRow([
     new Date(),
@@ -82,6 +82,19 @@ function doPost(e) {
   return ContentService
     .createTextOutput(JSON.stringify({ ok: true }))
     .setMimeType(ContentService.MimeType.JSON);
+}
+
+function testDoPost() {
+  return doPost({
+    parameter: {
+      name: "테스트 담당자",
+      company: "테스트 회사",
+      phone: "010-0000-0000",
+      email: "test@example.com",
+      topic: "테스트 문의",
+      message: "Apps Script 테스트 입력입니다.",
+    },
+  });
 }
 ```
 
