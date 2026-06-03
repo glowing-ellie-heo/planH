@@ -65,9 +65,31 @@ npx vercel --prod
 스프레드시트에서 `확장 프로그램 > Apps Script`를 열고 아래 코드를 붙여 넣은 뒤 웹 앱으로 배포합니다.
 
 ```javascript
+function parseRequestData(e) {
+  if (e && e.parameter && Object.keys(e.parameter).length > 0) {
+    return e.parameter;
+  }
+
+  if (e && e.postData && e.postData.contents) {
+    return e.postData.contents.split("&").reduce(function (acc, pair) {
+      var parts = pair.split("=");
+      var key = decodeURIComponent((parts[0] || "").replace(/\+/g, " "));
+      var value = decodeURIComponent((parts[1] || "").replace(/\+/g, " "));
+
+      if (key) {
+        acc[key] = value;
+      }
+
+      return acc;
+    }, {});
+  }
+
+  return {};
+}
+
 function doPost(e) {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  const data = e && e.parameter ? e.parameter : {};
+  const data = parseRequestData(e);
 
   sheet.appendRow([
     new Date(),
