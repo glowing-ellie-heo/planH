@@ -8,7 +8,7 @@ fi
 
 cd "$(dirname "$0")"
 
-echo "Deploying IAN AI 연구소 homepage to Vercel..."
+echo "Deploying IAN AX 연구소 homepage to Vercel..."
 echo "If this is your first Vercel deployment, the CLI will ask you to log in and choose project settings."
 echo
 
