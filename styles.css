@@ -175,10 +175,11 @@ h2 {
   flex: 0 1 auto;
   max-width: 100%;
   color: var(--neutral-0);
-  font-size: clamp(0.98rem, 1.3vw, 1.1rem);
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
+}
+
+.brand-logo {
+  width: auto;
+  height: 40px;
 }
 
 .site-header.is-scrolled .brand,
@@ -342,6 +343,27 @@ h3 {
   color: rgba(255, 255, 255, 0.82);
   font-size: clamp(1rem, 1.7vw, 1.24rem);
   line-height: 1.8;
+}
+
+.hero-proof {
+  display: grid;
+  gap: 12px;
+  max-width: 880px;
+  margin-top: 28px;
+  padding-left: 18px;
+  border-left: 2px solid rgba(0, 180, 203, 0.55);
+}
+
+.hero-proof p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: clamp(1rem, 1.45vw, 1.14rem);
+  font-weight: 700;
+  line-height: 1.75;
+}
+
+.hero-proof strong {
+  color: var(--primary-200);
 }
 
 .desktop-break {
@@ -873,6 +895,14 @@ textarea:focus {
     padding: calc(var(--header-height) + 44px) 0 68px;
   }
 
+  .brand {
+    max-width: 132px;
+  }
+
+  .brand-logo {
+    height: 34px;
+  }
+
   .hero-shade {
     background:
       linear-gradient(180deg, rgba(18, 42, 86, 0.82) 0%, rgba(18, 42, 86, 0.72) 52%, rgba(18, 42, 86, 0.48) 100%),
@@ -895,6 +925,10 @@ textarea:focus {
 
   .desktop-break {
     display: none;
+  }
+
+  .hero-proof {
+    padding-left: 14px;
   }
 
   .metric,
