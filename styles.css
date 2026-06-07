@@ -345,27 +345,6 @@ h3 {
   line-height: 1.8;
 }
 
-.hero-proof {
-  display: grid;
-  gap: 12px;
-  max-width: 880px;
-  margin-top: 28px;
-  padding-left: 18px;
-  border-left: 2px solid rgba(0, 180, 203, 0.55);
-}
-
-.hero-proof p {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.92);
-  font-size: clamp(1rem, 1.45vw, 1.14rem);
-  font-weight: 700;
-  line-height: 1.75;
-}
-
-.hero-proof strong {
-  color: var(--primary-200);
-}
-
 .desktop-break {
   display: inline;
 }
@@ -925,10 +904,6 @@ textarea:focus {
 
   .desktop-break {
     display: none;
-  }
-
-  .hero-proof {
-    padding-left: 14px;
   }
 
   .metric,
