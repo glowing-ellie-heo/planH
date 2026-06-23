@@ -793,6 +793,23 @@ textarea:focus {
   letter-spacing: 0.04em;
 }
 
+.footer-biz {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  padding-top: 16px;
+  margin-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-biz a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: underline;
+}
+
 .button:focus-visible,
 .nav a:focus-visible,
 .brand:focus-visible,
@@ -935,4 +952,130 @@ textarea:focus {
     opacity: 1;
     transform: none;
   }
+}
+
+/* Footer 링크 */
+.footer-links {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 12px;
+  margin-top: 4px;
+}
+
+.footer-link-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.78rem;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  font-family: inherit;
+  transition: color 0.2s;
+}
+
+.footer-link-btn:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.footer-link-divider {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.78rem;
+}
+
+/* 모달 */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.modal-overlay.is-open {
+  display: flex;
+}
+
+.modal-box {
+  background: #fff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 680px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.25);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modal-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0a1a3a;
+  margin: 0;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.modal-close:hover {
+  background: #f3f4f6;
+}
+
+.modal-body {
+  padding: 24px 28px;
+  overflow-y: auto;
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: #374151;
+}
+
+.modal-body h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0a1a3a;
+  margin: 20px 0 8px;
+}
+
+.modal-body h3:first-child {
+  margin-top: 0;
+}
+
+.modal-body ul {
+  padding-left: 20px;
+  margin: 6px 0;
+}
+
+.modal-body li {
+  margin-bottom: 4px;
+}
+
+.modal-body p {
+  margin: 6px 0;
+}
+
+.modal-date {
+  margin-top: 20px !important;
+  color: #9ca3af;
+  font-size: 0.82rem;
 }

@@ -316,8 +316,34 @@
       <div class="container footer-inner">
         <span>이안AX</span>
         <span>AX 교육 · AI 보안 환경 · PoC 개발 · AI 인프라 · 업무 자동화</span>
+        <div class="footer-biz">
+          <span>상호명: 이안AX연구소</span>
+          <span>대표자: 지성현</span>
+          <span>사업자등록번호: 478-87-03690</span>
+          <span>주소: 서울시 금천구 벚꽃로 254, 월드메르디앙 907호</span>
+          <span>이메일: <a href="mailto:mzesh0318@ianax.co.kr">mzesh0318@ianax.co.kr</a></span>
+          <span>© 2026 이안AX. All rights reserved.</span>
+        </div>
+        <div class="footer-links">
+          <button class="footer-link-btn" onclick="openModal('privacy')">개인정보 처리방침</button>
+          <span class="footer-link-divider">|</span>
+          <button class="footer-link-btn" onclick="openModal('email')">이메일 무단수집 거부</button>
+          <span class="footer-link-divider">|</span>
+          <button class="footer-link-btn" onclick="openModal('terms')">이용약관</button>
+        </div>
       </div>
     </footer>
+
+    <!-- 모달 -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+      <div class="modal-box" onclick="event.stopPropagation()">
+        <div class="modal-header">
+          <h2 class="modal-title" id="modalTitle"></h2>
+          <button class="modal-close" onclick="closeModal()">✕</button>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+      </div>
+    </div>
 
     <script src="./script.js?v=6"></script>
   </body>
