@@ -106,7 +106,7 @@ h1,h2 { text-wrap: balance; }
 
 /* reveal — 스크롤 시 섹션이 한 단계씩 나타남 */
 .reveal { opacity: 1; transform: none; }
-.motion-ready .reveal { opacity: 0; transform: translateY(28px); transition: opacity var(--t-slow), transform var(--t-slow); }
+.motion-ready .reveal { opacity: 0; transform: translateY(40px); transition: opacity var(--t-slow), transform var(--t-slow); }
 .motion-ready .reveal.is-visible { opacity: 1; transform: none; }
 
 /* 섹션 내부 카드/스텝/표가 순차로(stagger) 등장 */
