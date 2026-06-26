@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /AUDIT.html
+Disallow: /AUDIT
 
 Sitemap: https://www.ianax.co.kr/sitemap.xml
